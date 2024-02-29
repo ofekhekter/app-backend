@@ -3,7 +3,7 @@ import { checkIfTableEmpty, insertProductToDB } from "../Utils/dal";
 
 
 export const productLogic = async (product: ProductType): Promise<ProductType> => {
-    checkIfTableEmpty("Products");
+    // checkIfTableEmpty("Products");
     insertProductToDB(product.ProductName, product.ProductPrice);
     return product;
 }
