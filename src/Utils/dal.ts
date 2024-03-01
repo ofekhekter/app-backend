@@ -25,7 +25,7 @@ export const executeSql = async (sqlQuery: string): Promise<any> => {
     }
 };
 
-export const insertUserToDB = (id: number, firstName: string, lastName: string, userName: string, password: string, role: string) => {
+export const insertUserToDB = async (id: number, firstName: string, lastName: string, userName: string, password: string, role: string) => {
     const sql = `INSERT INTO Users (id, firstName, lastName, userName, password, role) VALUES (${id}, '${firstName}', '${lastName}', '${userName}', '${password}', '${role}')`;
     executeSql(sql)
     .then((result) => {
@@ -36,7 +36,7 @@ export const insertUserToDB = (id: number, firstName: string, lastName: string, 
     });
 }
 
-export const insertProductToDB = (ProductName: string, ProductPrice: number) => {
+export const insertProductToDB = async (ProductName: string, ProductPrice: number) => {
     const sql = `INSERT INTO Products (ProductName, ProductPrice) VALUES ('${ProductName}', ${ProductPrice})`;
     executeSql(sql)
     .then((result) => {
@@ -47,14 +47,11 @@ export const insertProductToDB = (ProductName: string, ProductPrice: number) => 
     });
 }
 
-export const checkIfTableEmpty = (table: string) => {
+export const checkIfTableEmpty = async (table: string) => {
     const sql = `SELECT CASE WHEN EXISTS(SELECT 1 FROM dbo.${table}) THEN 0 ELSE 1 END AS IsEmpty`;
-    const isEmpty = executeSql(sql);
-    if (isEmpty) { 
-        resetTableCount(table)
-    } else {
-        console.log("Table is not empty:", table);
-    }
+    executeSql(sql).then((result) => {
+        console.log(result[0].IsEmpty);
+    }).catch((err) => console.log("err:", err));
 }
 
 export const resetTableCount = (table: string) => {
