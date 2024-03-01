@@ -3,10 +3,11 @@ import usersController from './Controllers/usersController';
 import projectsController from './Controllers/ProductController';
 
 const server = express();
-
 server.use(express.json());
+const port = 3000;
+const host = '0.0.0.0';
 
 server.use('/api', usersController);
 server.use('/api', projectsController);
 
-server.listen(3000, () => console.log('Listening on http://localhost:3000'));
+server.listen(port, host, () => console.log(`Listening on http://${host}:${port}`));
