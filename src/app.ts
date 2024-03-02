@@ -4,7 +4,7 @@ import projectsController from './Controllers/ProductController';
 
 const server = express();
 server.use(express.json());
-const port = 3000;
+const port = 3001;
 const host = '0.0.0.0';
 
 server.use('/api', usersController);
