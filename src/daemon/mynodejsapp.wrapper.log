@@ -1,4 +1,0 @@
-2024-03-02 20:46:22 - Starting C:\Program Files\nodejs\node.exe  --harmony "C:\Users\ofek\Desktop\app-backend -ofek\node_modules\node-windows\lib\wrapper.js" --file "C:\Users\ofek\Desktop\app-backend -ofek\src\app.ts" --scriptoptions= --log "My Node.js App wrapper" --grow 0.25 --wait 1 --maxrestarts 3 --abortonerror n --stopparentfirst undefined
-2024-03-02 20:46:22 - Started 7052
-2024-03-02 20:47:50 - Starting C:\Program Files\nodejs\node.exe  --harmony "C:\Users\ofek\Desktop\app-backend -ofek\node_modules\node-windows\lib\wrapper.js" --file "C:\Users\ofek\Desktop\app-backend -ofek\src\app.ts" --scriptoptions= --log "My Node.js App wrapper" --grow 0.25 --wait 1 --maxrestarts 3 --abortonerror n --stopparentfirst undefined
-2024-03-02 20:47:50 - Started 9492
