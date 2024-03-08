@@ -1,17 +1,7 @@
 import * as sql from 'mssql';
+import { appConfig } from './appConfig';
 
-const config = {
-    user: 'ofek',
-    password: 'Ofek1989',
-    server: '46.121.77.61',
-    database: 'myProject',
-    port: 1433,
-    options: {
-        encrypt: false
-    }
-};
-
-const pool = new sql.ConnectionPool(config);
+const pool = new sql.ConnectionPool(appConfig);
 
 export const executeSql = async (sqlQuery: string): Promise<any> => {
     try {
@@ -25,8 +15,8 @@ export const executeSql = async (sqlQuery: string): Promise<any> => {
     }
 };
 
-export const insertUserToDB = async (id: number, firstName: string, lastName: string, userName: string, password: string, role: string) => {
-    const sql = `INSERT INTO Users (id, firstName, lastName, userName, password, role) VALUES (${id}, '${firstName}', '${lastName}', '${userName}', '${password}', '${role}')`;
+export const insertUserToDB = async (firstName: string, lastName: string, userName: string, password: string, role: string) => {
+    const sql = `INSERT INTO Users (firstname, lastname, username, password, role) VALUES ('${firstName}', '${lastName}', '${userName}', '${password}', '${role}')`;
     executeSql(sql)
     .then((result) => {
         console.log("User inserted successfully:", result);
